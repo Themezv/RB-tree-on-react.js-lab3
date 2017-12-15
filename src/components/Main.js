@@ -1,5 +1,5 @@
 import React from 'react';
-// import Node from './Node';
+import Node from './Node';
 
 class Main extends React.Component {
     constructor(props){
@@ -23,11 +23,12 @@ class Main extends React.Component {
     render() {
         return(
             <svg width="100%" height="600" onWheel={this.resize} viewBox={`0 0 ${this.state.scale} ${this.state.scale}`}>
-                {/*{this.props.tree.getArray().map((node, index) => {*/}
-                    {/*return (*/}
-                        {/*<Node {...node} index={index} key={index}/>*/}
-                    {/*)*/}
-                {/*})}*/}
+                {this.props.tree.map((node, index) => {
+                    console.log('NODE:', node);
+                    return (
+                        <Node {...node} index={index} key={index}/>
+                    )
+                })}
             </svg>
         )
     }

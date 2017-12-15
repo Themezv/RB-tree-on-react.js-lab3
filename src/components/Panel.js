@@ -13,7 +13,7 @@ export default class Panel extends React.Component {
     }
 
     addNode(){
-        this.props.addNode({skey: +this.state.input, value: this.state.value})
+        this.props.addNode({skey: +this.state.input, value: this.state.value, color: '#f00'})
     }
 
     render() {

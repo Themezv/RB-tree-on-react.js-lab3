@@ -27,9 +27,6 @@ class Node extends React.Component {
       return Math.pow(2, level);
     }
 
-    renderTree(){
-
-    }
 
     getNumInRow(index) {
       let i = 1;
@@ -44,14 +41,22 @@ class Node extends React.Component {
     render() {
         const {index} = this.props;
         return(
-            <rect
-                width={this.calcWidth(index)}
-                height={this.calcHeight(index)}
-                fill={this.props.color}
-                x={this.calcX(index)}
-                y={this.calcY(index)}
-                stroke={this.props.stroke}
-            />
+            <g>
+                <rect
+                    width={this.calcWidth(index)}
+                    height={this.calcHeight(index)}
+                    fill={this.props.color}
+                    x={this.calcX(index)}
+                    y={this.calcY(index)}
+                    stroke={this.props.stroke}
+                />
+                <text
+                    fill="#fff"
+                    x={this.calcX(index) + 0.15 * this.calcWidth(index)}
+                    y={this.calcY(index) + this.calcHeight(index) - 0.2 * this.calcHeight(index)}
+                    style={{fontSize: String(this.calcWidth) + 'px'}}
+                >{this.props.skey}</text>
+            </g>
         )
     }
 }
@@ -59,10 +64,6 @@ class Node extends React.Component {
 Node.defaultProps = {
     width: 100,
     height: 100,
-    color: '#000',
-    stroke: 2,
-    x: 0,
-    y: 0,
 };
 
 export default Node;
